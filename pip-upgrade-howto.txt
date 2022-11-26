@@ -1,0 +1,22 @@
+######### Upgrade PIP #########
+$ ../venv_main_dev/bin/pip install --upgrade pip
+
+
+######### Make requirements file backup #########
+$ ../venv_main_dev/bin/pip freeze > requirements_bck.txt
+
+
+######### Make requirements file to upgrade #########
+$ ../venv_main_dev/bin/pip freeze | cut -d '=' -f1> requirements_4upgrade.txt 
+
+[ cancellare le lib che non si vogliono upgradare o mettere il numero preciso di versione ]
+
+
+######### Execute requirements file to upgrade #########
+$ ../venv_main_dev/bin/pip install -r requirements_4upgrade.txt --upgrade
+
+[ delete file requirements_2upgrade.txt ]
+
+
+######### Make new requirements file #########
+$ ../venv_main_dev/bin/pip freeze > requirements_current.txt
